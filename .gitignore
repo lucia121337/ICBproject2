@@ -1,16 +1,16 @@
+# 모든 숨김 파일 및 폴더 무시 (.agents, .venv, .idea 등 포함)
+.*
+# 단, .gitignore 자체는 예외로 두어 버전 관리 대상에 포함
+!.gitignore
+
 # 파이썬(Python)
 __pycache__/
 *.py[cod]
 *$py.class
 
-# 가상환경 (uv 및 기타)
-.venv/
+# 가상환경 (일반 폴더명인 경우)
 venv/
 env/
-
-# Jupyter Notebook
-.ipynb_checkpoints/
-*/.ipynb_checkpoints/
 
 # 데이터 파일 (데이터 분석 시 주로 사용되는 파일 확장자 및 폴더)
 *.csv
@@ -28,16 +28,11 @@ datasets/
 raw_data/
 processed_data/
 
-# IDE 및 OS 시스템 파일
-.idea/
-.vscode/
-.DS_Store
+# OS 시스템 파일
 Thumbs.db
 
 # 빌드, 배포, 테스트 로그
 build/
 dist/
 *.egg-info/
-.pytest_cache/
-.coverage
 htmlcov/
