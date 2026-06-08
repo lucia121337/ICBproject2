@@ -1,0 +1,43 @@
+# 파이썬(Python)
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 가상환경 (uv 및 기타)
+.venv/
+venv/
+env/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# 데이터 파일 (데이터 분석 시 주로 사용되는 파일 확장자 및 폴더)
+*.csv
+*.tsv
+*.dat
+*.out
+*.log
+*.parquet
+*.h5
+*.hdf5
+*.sqlite
+*.db
+data/
+datasets/
+raw_data/
+processed_data/
+
+# IDE 및 OS 시스템 파일
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# 빌드, 배포, 테스트 로그
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
