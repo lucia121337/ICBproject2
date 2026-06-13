@@ -1,0 +1,14 @@
+credentials:
+  usernames:
+    admin:
+      email: admin@example.com
+      name: 관리자
+      password: "$2b$12$h4/.M/Q7pe1j.3YOpIanUuvTqeVbdRTLkgY0aCtHZrgt.0m.EHz9C" # admin123
+    user:
+      email: user@example.com
+      name: 일반사용자
+      password: "$2b$12$.o7DiXuiIrXO69R5nbUx7u8Hp.JSHJ0bgwfxewgVolUXWIoMmxxFm" # user123
+cookie:
+  expiry_days: 30
+  key: icb10_dashboard_signature_key
+  name: icb10_dashboard_cookie
