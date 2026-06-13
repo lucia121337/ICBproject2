@@ -2,6 +2,7 @@
 .*
 # 단, .gitignore 자체는 예외로 두어 버전 관리 대상에 포함
 !.gitignore
+!.env.example
 
 # 파이썬(Python)
 __pycache__/
