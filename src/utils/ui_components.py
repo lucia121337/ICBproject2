@@ -1,18 +1,25 @@
 import streamlit as st
 from datetime import date, timedelta
+import os
+from dotenv import load_dotenv
+
+# 로컬 .env 파일 로드
+load_dotenv()
 
 def render_sidebar():
     st.sidebar.header("⚙️ 네이버 API 설정")
     
-    # secrets.toml 파일이 있으면 기본값으로 불러옵니다.
-    default_client_id = ""
-    default_client_secret = ""
+    # 1. 로컬 환경변수(.env 등)에서 가져오기
+    default_client_id = os.environ.get("NAVER_CLIENT_ID", "")
+    default_client_secret = os.environ.get("NAVER_CLIENT_SECRET", "")
+    
+    # 2. 환경변수가 없을 경우 Streamlit Secrets에서 가져오기
     try:
-        if "NAVER_CLIENT_ID" in st.secrets:
+        if not default_client_id and "NAVER_CLIENT_ID" in st.secrets:
             default_client_id = st.secrets["NAVER_CLIENT_ID"]
-        if "NAVER_CLIENT_SECRET" in st.secrets:
+        if not default_client_secret and "NAVER_CLIENT_SECRET" in st.secrets:
             default_client_secret = st.secrets["NAVER_CLIENT_SECRET"]
-    except:
+    except Exception:
         pass
 
     # Session State 초기화
@@ -27,9 +34,16 @@ def render_sidebar():
     if "end_date" not in st.session_state:
         st.session_state.end_date = date.today()
 
-    # 입력 폼
-    client_id = st.sidebar.text_input("Client ID", value=st.session_state.client_id, type="password")
-    client_secret = st.sidebar.text_input("Client Secret", value=st.session_state.client_secret, type="password")
+    # 입력 폼 (값이 없을 때만 표시)
+    if not st.session_state.client_id:
+        client_id = st.sidebar.text_input("Client ID", value=st.session_state.client_id, type="password")
+    else:
+        client_id = st.session_state.client_id
+
+    if not st.session_state.client_secret:
+        client_secret = st.sidebar.text_input("Client Secret", value=st.session_state.client_secret, type="password")
+    else:
+        client_secret = st.session_state.client_secret
     
     st.sidebar.markdown("---")
     st.sidebar.header("🔍 검색 설정")
