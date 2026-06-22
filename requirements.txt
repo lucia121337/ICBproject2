@@ -3,6 +3,3 @@ pandas
 requests
 plotly
 python-dotenv
-pytrends
-streamlit-authenticator
-pygwalker
